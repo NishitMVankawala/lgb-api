@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<style type="text/css">
+		/* FONTS */
+		@media screen {
+			@font-face {
+				font-family: 'Nunito';
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: local('Nunito Sans Regular'), local('NunitoSans-Regular'), url(https://fonts.gstatic.com/s/nunitosans/v5/pe0qMImSLYBIv1o4X1M8cce9I9s.woff2) format('woff2');
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+			}
+
+			@font-face {
+				font-family: 'Nunito';
+				font-style: normal;
+				font-weight: 600;
+				font-display: swap;
+				src: local('Nunito Sans SemiBold'), local('NunitoSans-SemiBold'), url(https://fonts.gstatic.com/s/nunitosans/v5/pe03MImSLYBIv1o4X1M8cc9iB85tU1E.woff2) format('woff2');
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+			}
+		}
+
+		/* CLIENT-SPECIFIC STYLES */
+		body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+		table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+		img { -ms-interpolation-mode: bicubic; }
+
+		/* RESET STYLES */
+		img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+		table { border-collapse: collapse !important; }
+		body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+
+		/* iOS BLUE LINKS */
+		a[x-apple-data-detectors] {
+			color: inherit !important;
+			text-decoration: none !important;
+			font-size: inherit !important;
+			font-family: inherit !important;
+			font-weight: inherit !important;
+			line-height: inherit !important;
+		}
+
+		/* MOBILE STYLES */
+		@media screen and (max-width:600px){
+			h1 {
+				font-size: 32px !important;
+				line-height: 32px !important;
+			}
+		}
+
+		/* ANDROID CENTER FIX */
+		div[style*="margin: 16px 0;"] { margin: 0 !important; }
+	</style>
+</head>
+<body style="background-color: #f0f0f0; margin: 0 !important; padding: 0 !important;">
+
+<!-- HIDDEN PREHEADER TEXT -->
+<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Nunito', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+	{% block pretext %}{% endblock %}
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<!-- LOGO -->
+	<tr>
+		<td bgcolor="#f1563f" align="center">
+			<!--[if (gte mso 9)|(IE)]>
+			<table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+				<tr>
+					<td align="center" valign="top" width="600">
+			<![endif]-->
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+				<tr>
+					<td align="center" valign="top" style="padding: 40px 10px 40px 10px;">
+						<a href="https://crm.lgb.urbn.work" target="_blank">
+							<img alt="" src="https://lgb.urbn.work/images/logo.png" width="40" height="40" style="display: block; width: 60px; max-width: 60px; min-width: 60px; font-family: 'Nunito', Helvetica, Arial, sans-serif; color: #ffffff; font-size: 18px;" border="0">
+						</a>
+					</td>
+				</tr>
+			</table>
+			<!--[if (gte mso 9)|(IE)]>
+			</td>
+			</tr>
+			</table>
+			<![endif]-->
+		</td>
+	</tr>
+	<!-- HERO -->
+	<tr>
+		<td bgcolor="#f1563f" align="center" style="padding: 0px 10px 0px 10px;">
+			<!--[if (gte mso 9)|(IE)]>
+			<table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+				<tr>
+					<td align="center" valign="top" width="600">
+			<![endif]-->
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+				<tr>
+					<td bgcolor="#fff" align="left" valign="top" style="padding: 40px 30px 20px 30px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Nunito', Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 400; line-height: 30px;">
+						<p style="margin: 0;">{% block title %}{% endblock %}</p>
+					</td>
+				</tr>
+			</table>
+			<!--[if (gte mso 9)|(IE)]>
+			</td>
+			</tr>
+			</table>
+			<![endif]-->
+		</td>
+	</tr>
+	<!-- COPY BLOCK -->
+	<tr>
+		<td bgcolor="#f0f0f0" align="center" style="padding: 0px 10px 0px 10px;">
+			<!--[if (gte mso 9)|(IE)]>
+			<table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+				<tr>
+					<td align="center" valign="top" width="600">
+			<![endif]-->
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+				{% block content %}{% endblock %}
+			</table>
+			<!--[if (gte mso 9)|(IE)]>
+			</td>
+			</tr>
+			</table>
+			<![endif]-->
+		</td>
+	</tr>
+	<!-- FOOTER -->
+	<tr>
+		<td bgcolor="#f0f0f0" align="center" style="padding: 0px 10px 0px 10px;">
+			<!--[if (gte mso 9)|(IE)]>
+			<table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+				<tr>
+					<td align="center" valign="top" width="600">
+			<![endif]-->
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+				<!-- NAVIGATION -->
+				<tr>
+					<td bgcolor="#f0f0f0" align="left" style="padding: 30px 30px 30px 30px; color: #666666; font-family: 'Nunito', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;" >
+						<p>
+							<a href="https://lgb.urbn.work" target="_blank" style="color: #111111; font-weight: 700;">Home</a> -
+							<a href="https://crm.lgb.urbn.work" target="_blank" style="color: #111111; font-weight: 700;">CRM</a>
+						</p>
+						<p style="margin: 0;">
+							Copyright © 2020 LGB., All rights reserved.
+						</p>
+					</td>
+				</tr>
+				<!-- PERMISSION REMINDER -->
+				<tr>
+					<td bgcolor="#f0f0f0" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Nunito', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;" >
+						<p style="margin: 0;">
+							You received this email because you are assigned as a recipient on the LGB Portal CRM.
+						</p>
+					</td>
+				</tr>
+			</table>
+			<!--[if (gte mso 9)|(IE)]>
+			</td>
+			</tr>
+			</table>
+			<![endif]-->
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

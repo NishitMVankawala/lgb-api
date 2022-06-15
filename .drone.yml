@@ -1,0 +1,87 @@
+---
+kind: pipeline
+name: default
+type: docker
+
+workspace:
+  path: /usr/src/app
+
+services:
+  - name: mongo
+    image: mongo:4
+    ports:
+      - 27017
+
+steps:
+  - name: test
+    image: node:alpine
+    commands:
+      - yarn install
+      - yarn test
+    depends_on:
+      - mongo
+    environment:
+      NODE_ENV: test
+      PORT: 8093
+      WEB_PORT: 8093
+      API_PORT: 8080
+      MONGO_URI_TEST:
+        from_secret: MONGO_URI_TEST
+      SALT:
+        from_secret: SALT
+      JWT_SECRET:
+        from_secret: JWT_SECRET
+      WEB_COMMAND_TOKEN:
+        from_secret: WEB_COMMAND_TOKEN
+      SENDGRID_API_KEY:
+        from_secret: SENDGRID_API_KEY
+      ENDPOINT_DIGITALOCEAN_SPACES:
+        from_secret: ENDPOINT_DIGITALOCEAN_SPACES
+      SPACES_KEY:
+        from_secret: SPACES_KEY
+      SPACES_SECRET:
+        from_secret: SPACES_SECRET
+      SPACES_STORAGE_BUCKET:
+        from_secret: SPACES_STORAGE_BUCKET
+  - name: build
+    image: plugins/docker
+    settings:
+      repo: lgbeskaytech/lgb-api
+      username:
+        from_secret: dockerhub_username
+      password:
+        from_secret: dockerhub_password
+    depends_on:
+      - test
+  - name: deploy_staging
+    image: appleboy/drone-ssh
+    settings:
+      host: 35.240.164.234
+      username: root
+      password:
+        from_secret: stage_server_password
+      port: 22
+      command_timeout: 2m
+      script:
+        - cd /home/udit/deployment-configuration
+        - ./deploy.sh
+    depends_on:
+      - test
+      - build
+  - name: notify
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: slack_webhook
+      channel: ci-updates
+      template: >
+        {{#success build.status}}
+          API build {{build.number}} succeeded and deployed!
+        {{else}}
+          API build {{build.number}} failed. Fix me please.
+        {{/success}}
+    depends_on:
+      - test
+      - build
+      - deploy_staging
+...

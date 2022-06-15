@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+
+  api:
+    build: .
+    container_name: lgb-api
+    command: npm run watch
+    ports:
+      - ${WEB_PORT}:${API_PORT}
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - MONGO_DB=${MONGO_DB}
+      - MONGO_URI=${MONGO_URI}
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+
+  redis:
+    container_name: lgb-api-redis
+    image: redis:alpine
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]
+    ports:
+      - 6379:6379
+    volumes:
+      - redis:/data
+      
+  mongo:
+    image: mongo
+    container_name: lgb-db
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017:27017
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+#      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+#      - MONGO_INITDB_DATABASE=${MONGO_DB}
+
+volumes:
+  redis:
+  mongo:

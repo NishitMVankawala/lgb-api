@@ -1,0 +1,14 @@
+.idea
+.env
+node_modules
+dist
+.config
+.nyc_output
+coverage
+.keys
+data
+backup
+*.log
+/log
+.drone-secret
+.drone-env
